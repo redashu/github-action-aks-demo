@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  webapp:
+   image: summer:web${BUILD_NUMBER}
+   container_name: sumc1
+   ports:
+   - 80:80
+   restart: always
