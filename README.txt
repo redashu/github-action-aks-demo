@@ -17,7 +17,7 @@ AJ
 aj@lkn.io | @ajlkn
 
 
-Credits:
+Creditss:
 
 	Demo Images:
 		Unsplash (unsplash.com)
