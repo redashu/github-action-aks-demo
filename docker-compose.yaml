@@ -3,7 +3,7 @@ services:
   webapp:
    image: summer:web${BUILD_NUMBER}
    build: .
-   container_name: sumc1
+   container_name: ashuc9
    ports:
-   - 80:80
+   - 1887:80
    restart: always
