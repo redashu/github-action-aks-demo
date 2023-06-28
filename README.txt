@@ -9,7 +9,7 @@ SVG and animation techniques I've been experimenting with on that other project 
 you may have heard about (https://carrd.co), and includes a handy generic page for whatever.
 
 Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+you can use for pretty much whatever sending action 
 
 (* = not included)
 
