@@ -16,7 +16,10 @@ jobs:
     - name: default action in github action official which check repo
       uses: actions/checkout@v3
     - name: we can run commands depends on runs-on os 
-      run: date
+      run: |
+        date
+        echo $GITHUB_REF
+        echo $TAG
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
       with:
