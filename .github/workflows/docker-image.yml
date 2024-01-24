@@ -36,3 +36,10 @@ jobs:
     steps:
     -  name: running post check command
        run: whoami
+    - name: Deploy to Kubernetes
+      uses: azure/k8s-deploy@v1
+      with:
+        azure_credentials_secret: ${{ secrets.AZURE_CREDENTIALS_SECRET }}
+        image: dockerashu/githubactions:latest  # Use the same image name you pushed to Docker Hub
+        namespace: default
+        deployment: my-app-deployment
