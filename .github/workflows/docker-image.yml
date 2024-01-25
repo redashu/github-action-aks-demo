@@ -39,3 +39,11 @@ jobs:
     steps:
     -  name: running post check command
        run: whoami
+    - name: 'Login via Azure CLI'
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }} 
+    -  name: running command to check credentail 
+       run: kubectl get nodes 
+
+
