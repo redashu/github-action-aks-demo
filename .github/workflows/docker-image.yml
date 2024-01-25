@@ -39,21 +39,21 @@ jobs:
     steps:
     -  name: running post check command
        run: whoami
-    - name: setting context 
-      uses: azure/aks-set-context@v1
-      with:
+    -  name: setting context 
+       uses: azure/aks-set-context@v1
+       with:
         creds: '${{ secrets.AZURE_CREDENTIALS_SECRET }}'
         cluster-name: ${{ env.CLUSTER_NAME }}
         resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
 
-    - name: Deploy to Kubernetes
-      uses: azure/k8s-deploy@v1
-      with:
+    -  name: Deploy to Kubernetes
+       uses: azure/k8s-deploy@v1
+       with:
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
-    - name: upgrading deployment 
-      run: |
+    -  name: upgrading deployment 
+       run: |
 	kubectl get deploy
         kubectl set image deployment web-app githubactions=dockerashu/githubactions:master-"${{ github.sha }}"
         sleep 2 
