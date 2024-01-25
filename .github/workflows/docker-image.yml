@@ -45,5 +45,9 @@ jobs:
        creds: ${{ secrets.AZURE_CREDENTIALS }} 
     - name: running command to check credentail 
       run: az group list 
+    - name: downloading aks kubeconfig file 
+      run: az aks get-credentials --resource-group k8sty --name test-k8s --overwrite-existing
+    - name: testing kubectl 
+      run: kubectl get nodes 
 
 
