@@ -45,17 +45,24 @@ jobs:
        creds: ${{ secrets.AZURE_CREDENTIALS }} 
     - name: running command to check credentail 
       run: az group list 
+      # just for test only 
     - name: downloading aks kubeconfig file 
       run: az aks get-credentials --resource-group k8sty --name test-k8s --overwrite-existing
     - name: testing kubectl 
       run: kubectl get nodes 
+    - name: setting context which will be used by workflow given in below step
+      uses: Azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: '${{ env.CLUSTER_NAME }}'
+        resource-group: '${{ env.CLUSTER_RESOURCE_GROUP }}'
     - name: deploy using manifest 
       uses: Azure/k8s-deploy@v4
       with:
         action: deploy
         manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
+          manifests/deployment.yaml
+          manifests/service.yaml
         images: |
           dockerashu/githubactions:${{ github.ref }}-${{ github.sha }}
 
