@@ -66,6 +66,6 @@ jobs:
           manifests/deployment.yaml
           manifests/service.yaml
         images: |
-          dockerashu/githubactions:master-${{ github.sha }}
+          dockerashu/githubactions:master-${{ github.sha | slice(0, 7) }}
 
 
