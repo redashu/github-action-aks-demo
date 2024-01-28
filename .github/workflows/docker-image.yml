@@ -37,6 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+    - name: default action in github action official which check repo
+      uses: actions/checkout@v3
     - name: running post check command
       run: whoami
     - name: 'Login via Azure CLI'
