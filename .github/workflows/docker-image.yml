@@ -49,5 +49,14 @@ jobs:
       run: az aks get-credentials --resource-group k8sty --name test-k8s --overwrite-existing
     - name: testing kubectl 
       run: kubectl get nodes 
+    - name: deploy using manifest 
+      uses: Azure/k8s-deploy@v4
+      with:
+        action: deploy
+        manifests: |
+          manifests/deployment.yml
+          manifests/service.yml
+        images: |
+          dockerashu/githubactions:${{ github.ref }}-${{ github.sha }}
 
 
